@@ -1,4 +1,6 @@
 name: macOS ARM64
+permissions:
+  contents: read
 
 on:
   pull_request:
