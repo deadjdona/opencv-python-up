@@ -247,6 +247,8 @@ jobs:
           python -m twine upload --repository testpypi -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }} --skip-existing wheelhouse/wheel-*/opencv_* wheelhouse/wheel-*/opencv-*
 
   Release:
+    permissions:
+      contents: read
     if: github.event_name == 'release' && !github.event.release.prerelease
     needs: [Build, Build_sdist, Test]
     runs-on: ubuntu-22.04
