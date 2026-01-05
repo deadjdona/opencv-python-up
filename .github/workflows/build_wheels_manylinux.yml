@@ -229,6 +229,8 @@ jobs:
           python -m twine upload -u ${{ secrets.OPENCV_CONTRIB_PYTHON_HEADLESS_ROLLING_USERNAME }} -p ${{ secrets.OPENCV_CONTRIB_PYTHON_HEADLESS_ROLLING_PASSWORD }} --skip-existing wheelhouse/wheel-*/opencv_contrib_python_headless_rolling-*
 
   Pre-release:
+    permissions:
+      contents: read
     if: github.event_name == 'release' && github.event.release.prerelease
     needs: [Build, Build_sdist, Test]
     runs-on: ubuntu-22.04
