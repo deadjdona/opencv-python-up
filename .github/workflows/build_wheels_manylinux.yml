@@ -199,6 +199,8 @@ jobs:
         path: dist/opencv*.tar.gz
 
   Release_rolling:
+    permissions:
+      contents: read
     if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     needs: [Build, Test]
     runs-on: ubuntu-22.04
